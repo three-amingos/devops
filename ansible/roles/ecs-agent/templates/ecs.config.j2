@@ -5,8 +5,8 @@ ECS_LOGFILE=/log/ecs-agent.log
 ECS_AVAILABLE_LOGGING_DRIVERS=["json-file","awslogs","syslog"]
 ECS_LOGLEVEL=info
 ECS_CLUSTER={{ecs_cluster_name}}
-{% if ansible_default_ipv4.address == frontend_ip %}
-ECS_INSTANCE_ATTRIBUTES={"role": "frontend"} 
+{% if ansible_default_ipv4.address == node_ip %}
+ECS_INSTANCE_ATTRIBUTES={"role": "app"}
 {% else %}
-ECS_INSTANCE_ATTRIBUTES={"role": "backend"} 
+ECS_INSTANCE_ATTRIBUTES={"role": "node"}
 {% endif %}
