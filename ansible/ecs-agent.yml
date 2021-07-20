@@ -8,5 +8,6 @@
   tasks:
     - name: configure ecs
       include_role:
+        name: ecs-agent
         tasks_from: ecs-optimized
    
