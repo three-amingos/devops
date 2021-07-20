@@ -5,8 +5,8 @@
   become: yes
   gather_facts: yes
 
-  roles:
-    - common
-    - docker
-    - ecs-agent
+  tasks:
+    - name: configure ecs
+      include_role:
+        tasks_from: ecs-optimized
    
