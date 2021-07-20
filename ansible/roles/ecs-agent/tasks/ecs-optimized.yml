@@ -26,3 +26,14 @@
   template:
     src: ecs.config.j2
     dest: /etc/ecs/ecs.config
+
+- name: copy docker service to systemd directory
+  copy:
+    src: docker-container@ecs-agent.service
+    dest: /etc/systemd/system/docker-container@ecs-agent.service
+
+- name: enable and start docker-container@ecs-agent.service
+  service:
+    name: docker-container@ecs-agent.service
+    state: started
+    enabled: yes
